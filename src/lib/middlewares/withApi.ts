@@ -60,9 +60,10 @@ export function withApi<T>(
         let message = "OK";
         let data = result?.data ?? result;
         let pagination = result?.pagination ?? undefined;
-        if (data?.message) {
-          message = data?.message;
-          delete data?.message;
+        if (result.message || data?.message) {
+          message = result.message ?? data?.message;
+          if (data.message) delete data?.message;
+          if (result.message) delete result?.message;
         }
         return NextResponse.json({
           data,
