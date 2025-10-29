@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "compile": "next build --experimental-build-mode=compile",
     "start": "next start"
   },
   "dependencies": {
