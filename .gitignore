@@ -42,3 +42,6 @@ next-env.d.ts
 
 # ide
 .idea/
+
+# lock file - prevent musl
+package-lock.json
