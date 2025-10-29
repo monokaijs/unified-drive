@@ -2,12 +2,8 @@ FROM node:22-alpine AS builder
 
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN yarn config set network-timeout 300000 && \
-    yarn config set registry https://registry.npmjs.org/ && \
-    yarn --frozen-lockfile --production=false --network-timeout 300000 && \
-    yarn cache clean
 COPY . .
-RUN yarn compile
+RUN npm run compile
 
 FROM node:22-alpine AS runner
 WORKDIR /app
